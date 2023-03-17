@@ -65,3 +65,52 @@ A typical run through Docker would look as follows:
 ```bash
 docker run -it --rm certify -d example.com
 ```
+
+## Examples
+
+```bash
+> python3 certify -d cybersapien.tech -o cert.out
+
+ ██████╗███████╗██████╗ ████████╗██╗███████╗██╗   ██╗
+██╔════╝██╔════╝██╔══██╗╚══██╔══╝██║██╔════╝╚██╗ ██╔╝
+██║     █████╗  ██████╔╝   ██║   ██║█████╗   ╚████╔╝
+██║     ██╔══╝  ██╔══██╗   ██║   ██║██╔══╝    ╚██╔╝
+╚██████╗███████╗██║  ██║   ██║   ██║██║        ██║
+ ╚═════╝╚══════╝╚═╝  ╚═╝   ╚═╝   ╚═╝╚═╝        ╚═╝   
+     Coded with Love by Shivam Saraswat (@cybersapien)
+
+Certificate Information:
+{
+    "Self-Signed": "No",
+    "Valid": true,
+    "Version": "TLSv1.3",
+    "Revoked": "No",
+    "Expired": "No",
+    "Valid Until": "May 05, 2023 11:44:59 PM",
+    "Cipher Suite": "TLS_AES_256_GCM_SHA384",
+    "Cipher Strength": "256 bits",
+    "Certificate Subject:": "cybersapien.tech",
+    "Certificate Issued To": "cybersapien.tech",
+    "Certificate Issued By": "R3",
+    "Certificate Pinning": "Passed"
+}
+```
+
+```bash
+> python3 certify -d self-signed.badssl.com -o cert.out
+
+ ██████╗███████╗██████╗ ████████╗██╗███████╗██╗   ██╗
+██╔════╝██╔════╝██╔══██╗╚══██╔══╝██║██╔════╝╚██╗ ██╔╝
+██║     █████╗  ██████╔╝   ██║   ██║█████╗   ╚████╔╝
+██║     ██╔══╝  ██╔══██╗   ██║   ██║██╔══╝    ╚██╔╝
+╚██████╗███████╗██║  ██║   ██║   ██║██║        ██║
+ ╚═════╝╚══════╝╚═╝  ╚═╝   ╚═╝   ╚═╝╚═╝        ╚═╝   
+     Coded with Love by Shivam Saraswat (@cybersapien)
+
+Certificate Information:
+{
+    "Self-Signed": "Yes",
+    "Valid": false,
+    "Error": "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:997)"
+}
+```
