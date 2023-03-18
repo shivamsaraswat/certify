@@ -3,7 +3,7 @@ import socket
 import certifi
 
 
-def check_certificate_strength(hostname, port) -> dict:
+def check_certificate_strength(hostname, port) -> tuple[str, str]:
     """
     Checks the strength of a certificate
 
@@ -16,8 +16,6 @@ def check_certificate_strength(hostname, port) -> dict:
     :rtype: dict
     """
 
-    strength = dict()
-
     try:
         context = ssl.create_default_context()
         context.check_hostname = True
@@ -29,12 +27,10 @@ def check_certificate_strength(hostname, port) -> dict:
             with context.wrap_socket(sock, server_hostname=hostname) as ssock:
 
                 cipher = ssock.cipher()
-                strength = {
-                    "Cipher Suite" : str(cipher[0]),
-                    "Cipher Strength" : str(cipher[2]) + " bits"
-                }
+
+                return str(cipher[0]), str(cipher[2]) + " bits"
 
     except Exception as e:
         print('Error:', e)
 
-    return strength
+    return "", ""

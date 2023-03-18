@@ -1,0 +1,40 @@
+import sys
+import ssl
+import socket
+import hashlib
+
+def get_hashes(hostname, port, hash_name) -> str:
+    """
+    Gets the fingerprint hashes of a certificate
+
+    :param hostname: The hostname to check
+    :type hostname: str
+    :param port: The port to check
+    :type port: int
+    :param hash_name: The hash to use
+    :type hash_name: str
+
+    :return: The fingerprint hashes of a certificate
+    :rtype: str
+    """
+
+    # Establish SSL connection and get certificate
+    with ssl.create_default_context().wrap_socket(socket.socket(), server_hostname=hostname) as ssock:
+        ssock.connect((hostname, port))
+        cert = ssock.getpeercert(binary_form=True)
+
+    # Return the hash of the certificate
+    if hash_name == 'md5':
+        return hashlib.md5(cert).hexdigest()
+    elif hash_name == 'sha1':
+        return hashlib.sha1(cert).hexdigest()
+    elif hash_name == 'sha224':
+        return hashlib.sha224(cert).hexdigest()
+    elif hash_name == 'sha256':
+        return hashlib.sha256(cert).hexdigest()
+    elif hash_name == 'sha384':
+        return hashlib.sha384(cert).hexdigest()
+    elif hash_name == 'sha512':
+        return hashlib.sha512(cert).hexdigest()
+    
+    return ""

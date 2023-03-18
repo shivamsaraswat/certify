@@ -25,6 +25,7 @@ def check_certificate_expiration(hostname, port) -> tuple[bool, str]:
             expiration_datetime = datetime.strptime(x509.get_notAfter().decode(), "%Y%m%d%H%M%SZ")
             expiration_formatted = expiration_datetime.strftime("%B %d, %Y %I:%M:%S %p")
             return True, expiration_formatted
+
     except Exception as e:
         print('Error:', e)
         return False, "Invalid Certificate"

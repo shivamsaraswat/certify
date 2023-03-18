@@ -3,16 +3,16 @@ import socket
 import certifi
 
 
-def validate_certificate(hostname, port) -> str:
+def get_tls_version(hostname, port) -> str:
     """
-    Validates the certificate of a given hostname
+    Checks the TLS version used by the server
 
     :param hostname: The hostname to check
     :type hostname: str
     :param port: The port to check
     :type port: int
 
-    :return: The results of the validation
+    :return: The TLS version used by the server
     :rtype: str
     """
 
@@ -26,7 +26,7 @@ def validate_certificate(hostname, port) -> str:
 
             with context.wrap_socket(sock, server_hostname=hostname) as ssock:
 
-                return True, ssock.version()
+                return ssock.version()
 
     except Exception as e:
-        return False, str(e)
+        return ""

@@ -16,8 +16,6 @@ def check_authority_verification(hostname, port) -> dict:
     :rtype: dict
     """
 
-    authority_details = dict()
-
     try:
         context = ssl.create_default_context()
         context.check_hostname = True
@@ -30,14 +28,14 @@ def check_authority_verification(hostname, port) -> dict:
 
                 cert = ssock.getpeercert()
                 subject = dict(x[0] for x in cert['subject'])
-                issued_to = subject['commonName']
+                issued_to = subject['commonName'].strip('*.')
                 issuer = dict(x[0] for x in cert['issuer'])
                 issued_by = issuer['commonName']
 
-                authority_details['Certificate Issued To'] = issued_to
-                authority_details['Certificate Issued By'] = issued_by
+                return issued_to, issued_by
 
     except Exception as e:
         print('Error:', e)
 
-    return authority_details
+    return "", ""
+
