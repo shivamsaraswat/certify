@@ -20,7 +20,7 @@ def get_serial_number(hostname, port) -> str:
             ssock.connect((hostname, port))
             cert = ssock.getpeercert()
             return cert['serialNumber']
-    
+
     except Exception:
         return ""
 

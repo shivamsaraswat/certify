@@ -2,7 +2,7 @@ import ssl
 import socket
 
 
-def get_alternative_names(hostname, port) -> str:
+def get_alternative_names(hostname, port) -> list:
     """
     Get the alternative names from the certificate
 

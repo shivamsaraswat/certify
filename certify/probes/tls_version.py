@@ -3,7 +3,7 @@ import socket
 import certifi
 
 
-def get_tls_version(hostname, port) -> str:
+def get_tls_version(hostname, port) -> tuple[str, str]:
     """
     Checks the TLS version used by the server
 
@@ -13,7 +13,7 @@ def get_tls_version(hostname, port) -> str:
     :type port: int
 
     :return: The TLS version used by the server
-    :rtype: str
+    :rtype: tuple[str, str]
     """
 
     try:

@@ -3,7 +3,7 @@ import socket
 import certifi
 
 
-def check_authority_verification(hostname, port) -> dict:
+def check_authority_verification(hostname, port) -> tuple[str, str]:
     """
     Checks the authority verification of a certificate
 
@@ -12,8 +12,8 @@ def check_authority_verification(hostname, port) -> dict:
     :param port: The port to check
     :type port: int
 
-    :return: The results of the validation
-    :rtype: dict
+    :return: The results of the authority verification
+    :rtype: tuple[str, str]
     """
 
     try:
@@ -34,7 +34,7 @@ def check_authority_verification(hostname, port) -> dict:
 
                 return issued_to, issued_by
 
-    except Exception as e:
+    except Exception:
         pass
 
     return "", ""

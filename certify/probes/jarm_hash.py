@@ -17,7 +17,6 @@ def get_jarm_hash(hostname, port) -> str:
 
     try:
         return asyncio.run(Scanner.scan_async(hostname, port))[0]
-    
+
     except Exception:
         return ""
-

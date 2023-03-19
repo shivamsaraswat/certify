@@ -192,12 +192,10 @@ if __name__ == '__main__':
         # display certificate expiration status
         expired_bool, expired_str = check_certificate_expiration(hostname, port)
         if args.ex:
-            print(hostname + ":" + str(port), end=' ')
             if not expired_bool:
-                print(colored('[Expired]', 'red', attrs=['bold']))
+                print(colored('[Expired]', 'red', attrs=['bold']), end=' ')
                 if output:
                     output_str += ' [Expired]'
-                sys.exit(0)
 
         # display subject organization name
         if args.on:
@@ -301,14 +299,9 @@ if __name__ == '__main__':
                 if output:
                     output_str += ' [Untrusted]'
 
-        # TODO: add support for -list flag
-        # TODO: add support for multiple hosts
-        # TODO: correction for -o flag
-
         # Write to the output file
         if output:
             with open(output.name, 'a') as f:
                 f.write(output_str + '\n')
 
         print()
-

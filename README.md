@@ -94,14 +94,14 @@ docker run -it --rm certify -d hostname
 ### Example 1:
 
 ```bash
-> python3 certify -d cybersapien.tech -tv       
+> python3 certify -d cybersapien.tech -tv
 
  ██████╗███████╗██████╗ ████████╗██╗███████╗██╗   ██╗
 ██╔════╝██╔════╝██╔══██╗╚══██╔══╝██║██╔════╝╚██╗ ██╔╝
 ██║     █████╗  ██████╔╝   ██║   ██║█████╗   ╚████╔╝
 ██║     ██╔══╝  ██╔══██╗   ██║   ██║██╔══╝    ╚██╔╝
 ╚██████╗███████╗██║  ██║   ██║   ██║██║        ██║
- ╚═════╝╚══════╝╚═╝  ╚═╝   ╚═╝   ╚═╝╚═╝        ╚═╝   
+ ╚═════╝╚══════╝╚═╝  ╚═╝   ╚═╝   ╚═╝╚═╝        ╚═╝
      Coded with Love by Shivam Saraswat (@cybersapien)
 
 cybersapien.tech:443 [TLSv1.3]
@@ -111,7 +111,7 @@ cybersapien.tech:443 [TLSv1.3]
 
 ```bash
 > python3 certify -l domains.txt -o cert.out -tv -on -cipher -hash sha512 -jarm -sn -pin -av -vu -silent
-google.com:443 [TLSv1.3] [TLS_AES_256_GCM_SHA384] [256 bits] [20720863506ab451420d11d72c72d312674d61a822a642812ff8cde635ffd92e2fa6172d00fd0b033116b6d07e4b89c0412eae00af58deb0ddc5ecf5ac63b96a] [27d40d40d29d40d1dc42d43d00041d4689ee210389f4f6b4b5b1b93f92252d] [F27B612A054C603612DE2BB967B1F2CC] [Passed] [google.com] [GTS CA 1C3] [May 25, 2023 04:20:59 AM] 
+google.com:443 [TLSv1.3] [TLS_AES_256_GCM_SHA384] [256 bits] [20720863506ab451420d11d72c72d312674d61a822a642812ff8cde635ffd92e2fa6172d00fd0b033116b6d07e4b89c0412eae00af58deb0ddc5ecf5ac63b96a] [27d40d40d29d40d1dc42d43d00041d4689ee210389f4f6b4b5b1b93f92252d] [F27B612A054C603612DE2BB967B1F2CC] [Passed] [google.com] [GTS CA 1C3] [May 25, 2023 04:20:59 AM]
 facebook.com:443 [Meta Platforms, Inc.] [TLSv1.3] [TLS_CHACHA20_POLY1305_SHA256] [256 bits] [6bc40449e06861f4d824fb941690c4b08688d2b720381a311af696a7b586f7630d52af11a17c3ebcbcb45d54b083a86d5d445a0782640835b58ff92b184b58b8] [27d27d27d0000001dc41d43d00041d286915b3b1e31b83ae31db5c5a16efc7] [01E6B342797813A1BE6E94AFC5457350] [Passed] [facebook.com] [DigiCert SHA2 High Assurance Server CA] [March 26, 2023 11:59:59 PM]
 ```
 
@@ -125,7 +125,7 @@ facebook.com:443 [Meta Platforms, Inc.] [TLSv1.3] [TLS_CHACHA20_POLY1305_SHA256]
 ██║     █████╗  ██████╔╝   ██║   ██║█████╗   ╚████╔╝
 ██║     ██╔══╝  ██╔══██╗   ██║   ██║██╔══╝    ╚██╔╝
 ╚██████╗███████╗██║  ██║   ██║   ██║██║        ██║
- ╚═════╝╚══════╝╚═╝  ╚═╝   ╚═╝   ╚═╝╚═╝        ╚═╝   
+ ╚═════╝╚══════╝╚═╝  ╚═╝   ╚═╝   ╚═╝╚═╝        ╚═╝
      Coded with Love by Shivam Saraswat (@cybersapien)
 
 cybersapien.tech:443 [cybersapien.tech]

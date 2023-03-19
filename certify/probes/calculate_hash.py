@@ -3,7 +3,8 @@ import ssl
 import socket
 import hashlib
 
-def get_hashes(hostname, port, hash_name=None, json=False) -> str:
+
+def get_hashes(hostname, port, hash_name=None, json=False) -> str or dict:
     """
     Gets the fingerprint hashes of a certificate
 
@@ -15,7 +16,7 @@ def get_hashes(hostname, port, hash_name=None, json=False) -> str:
     :type hash_name: str
 
     :return: The fingerprint hashes of a certificate
-    :rtype: str
+    :rtype: str or dict
     """
 
     try:
@@ -47,8 +48,8 @@ def get_hashes(hostname, port, hash_name=None, json=False) -> str:
             all_hashes['sha384'] = hashlib.sha384(cert).hexdigest()
             all_hashes['sha512'] = hashlib.sha512(cert).hexdigest()
             return all_hashes
-        
+
     except Exception:
         pass
-    
+
     return ""

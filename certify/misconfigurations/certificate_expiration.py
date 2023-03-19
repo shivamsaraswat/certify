@@ -13,7 +13,7 @@ def check_certificate_expiration(hostname, port) -> tuple[bool, str]:
     :type port: int
 
     :return: True if the certificate is not expired, False otherwise
-    :rtype: bool
+    :rtype: tuple[bool, str]
     """
 
     try:
@@ -27,5 +27,5 @@ def check_certificate_expiration(hostname, port) -> tuple[bool, str]:
             expiration_formatted = expiration_datetime.strftime("%B %d, %Y %I:%M:%S %p")
             return True, expiration_formatted
 
-    except Exception as e:
+    except Exception:
         return False, "Invalid Certificate"

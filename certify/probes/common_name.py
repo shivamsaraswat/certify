@@ -15,7 +15,12 @@ def get_common_name(hostname, port) -> str:
     :rtype: str
     """
 
-    cert = ssl.get_server_certificate((hostname, port))
-    x509 = crypto.load_certificate(crypto.FILETYPE_PEM, cert)
-    
-    return x509.get_subject().CN.strip('*.')
+    try:
+        cert = ssl.get_server_certificate((hostname, port))
+        x509 = crypto.load_certificate(crypto.FILETYPE_PEM, cert)
+
+        return x509.get_subject().CN.strip('*.')
+
+    except Exception:
+        return ""
+

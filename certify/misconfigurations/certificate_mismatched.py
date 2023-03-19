@@ -15,7 +15,7 @@ def check_certificate_mismatched(hostname, port) -> bool:
     :rtype: bool
     """
 
-    try: 
+    try:
         # create a socket connection to the hostname and port
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         s.connect((hostname, port))
@@ -30,7 +30,7 @@ def check_certificate_mismatched(hostname, port) -> bool:
             return True
         else:
             return False
-        
-    except Exception as e:
+
+    except Exception:
         return False
 

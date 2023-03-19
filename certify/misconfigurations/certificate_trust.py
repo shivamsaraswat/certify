@@ -1,7 +1,7 @@
 import subprocess
 
 
-def check_certificate_trust(hostname) -> None:
+def check_certificate_trust(hostname) -> bool:
     """
     Checks if a certificate is trusted
 
@@ -15,22 +15,25 @@ def check_certificate_trust(hostname) -> None:
     stop = False
     trust = True
 
-    # Run the openssl s_client command and capture the output
-    with subprocess.Popen(["openssl", "s_client", "-connect", f"{hostname}:443"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT) as proc:
+    try:
 
-        while True:
-            line = proc.stdout.readline()
-            if not line:
-                break
-            if "Verify return code:" in line.decode().strip():
-                if "certificate not trusted" in line.decode():
-                    trust = False
-                stop = True
-                break
+        # Run the openssl s_client command and capture the output
+        with subprocess.Popen(["openssl", "s_client", "-connect", f"{hostname}:443"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT) as proc:
 
-        if stop:
-            proc.kill()
+            while True:
+                line = proc.stdout.readline()
+                if not line:
+                    break
+                if "Verify return code:" in line.decode().strip():
+                    if "certificate not trusted" in line.decode():
+                        trust = False
+                    stop = True
+                    break
+
+            if stop:
+                proc.kill()
+
+    except Exception:
+        pass
 
     return trust
-
-
