@@ -1,8 +1,10 @@
 # Certify
 
-"Certify" is a python tool designed to check the security of SSL/TLS certificates. The tool performs several tests to verify the validity and security of the certificate, including certificate validation, certificate revocation, certificate self-signed check, certificate expiration, certificate strength, certificate subject, certificate authority (CA) verification, and certificate pinning.
+Certify is a powerful and easy-to-use Python tool designed to check the security of SSL/TLS certificates. It provides a range of options for analyzing certificates and identifying potential security risks, including the ability to display subject alternative names, subject common names, organization name, TLS version, cipher, certificate fingerprint hashes, JARM hash, certificate serial number, certificate pinning status, certificate authority verification, and certificate validity.
 
-"Certify" allows security testers and administrators to quickly and easily verify the security of SSL/TLS certificates used by their websites or applications. It automates the testing process and provides detailed information on the results of each test, making it easy to identify and fix any security issues with the certificate.
+Certify also includes a number of features for identifying common certificate misconfigurations, such as expired, self-signed, mismatched, revoked, and untrusted certificates. The tool supports scanning individual hosts or lists of hosts, and allows for flexible output options, including the ability to write output to a file or display it in JSON format.
+
+Whether you're a security researcher, network administrator, or just someone who wants to ensure the security of your online communications, Certify is an indispensable tool for analyzing SSL/TLS certificates and identifying potential security risks. With its powerful features and intuitive interface, it makes it easy to stay on top of the latest security threats and keep your systems safe and secure.
 
 ## Installation Through PIP
 To install dependencies, use the following command:
