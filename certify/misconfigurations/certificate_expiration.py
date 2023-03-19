@@ -19,6 +19,7 @@ def check_certificate_expiration(hostname, port) -> tuple[bool, str]:
     try:
         cert = ssl.get_server_certificate((hostname, port))
         x509 = crypto.load_certificate(crypto.FILETYPE_PEM, cert)
+
         if x509.has_expired():
             return False, "Certificate has expired."
         else:
@@ -27,5 +28,4 @@ def check_certificate_expiration(hostname, port) -> tuple[bool, str]:
             return True, expiration_formatted
 
     except Exception as e:
-        print('Error:', e)
         return False, "Invalid Certificate"

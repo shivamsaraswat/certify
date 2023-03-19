@@ -26,7 +26,8 @@ def get_tls_version(hostname, port) -> str:
 
             with context.wrap_socket(sock, server_hostname=hostname) as ssock:
 
-                return ssock.version()
+                return ssock.version(), None
 
     except Exception as e:
-        return ""
+        return "", str(e)
+

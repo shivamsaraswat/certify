@@ -17,17 +17,21 @@ def get_alternative_names(hostname, port) -> str:
 
     alt_names = set()
 
-    with ssl.create_default_context().wrap_socket(socket.socket(), server_hostname=hostname) as ssock:
-        ssock.connect((hostname, port))
-        cert = ssock.getpeercert()
-        for alt_name in cert['subjectAltName']:
-            if alt_name[0] == 'DNS':
-                alt = alt_name[1].strip('*')
-                if alt.startswith('.'):
-                    alt = alt[1:]
-                    alt_names.add(alt)
-                else:
-                    alt_names.add(alt)
+    try:
 
-        return sorted(alt_names)
+        with ssl.create_default_context().wrap_socket(socket.socket(), server_hostname=hostname) as ssock:
+            ssock.connect((hostname, port))
+            cert = ssock.getpeercert()
+            for alt_name in cert['subjectAltName']:
+                if alt_name[0] == 'DNS':
+                    alt = alt_name[1].strip('*')
+                    if alt.startswith('.'):
+                        alt = alt[1:]
+                        alt_names.add(alt)
+                    else:
+                        alt_names.add(alt)
 
+            return sorted(alt_names)
+
+    except Exception:
+        return []

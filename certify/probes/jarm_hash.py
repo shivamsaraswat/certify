@@ -15,5 +15,9 @@ def get_jarm_hash(hostname, port) -> str:
     :rtype: str
     """
 
-    return asyncio.run(Scanner.scan_async(hostname, port))[0]
+    try:
+        return asyncio.run(Scanner.scan_async(hostname, port))[0]
+    
+    except Exception:
+        return ""
 

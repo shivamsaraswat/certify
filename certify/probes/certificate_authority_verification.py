@@ -35,7 +35,7 @@ def check_authority_verification(hostname, port) -> dict:
                 return issued_to, issued_by
 
     except Exception as e:
-        print('Error:', e)
+        pass
 
     return "", ""
 

@@ -20,5 +20,4 @@ def check_certificate_revocation(hostname) -> bool:
             return False
 
     except Exception as e:
-        print('Error:', e)
         return False

@@ -15,8 +15,12 @@ def get_serial_number(hostname, port) -> str:
     :rtype: str
     """
 
-    with ssl.create_default_context().wrap_socket(socket.socket(), server_hostname=hostname) as ssock:
-        ssock.connect((hostname, port))
-        cert = ssock.getpeercert()
-        return cert['serialNumber']
+    try:
+        with ssl.create_default_context().wrap_socket(socket.socket(), server_hostname=hostname) as ssock:
+            ssock.connect((hostname, port))
+            cert = ssock.getpeercert()
+            return cert['serialNumber']
+    
+    except Exception:
+        return ""
 

@@ -15,7 +15,11 @@ def get_organization_name(hostname, port) -> str:
     :rtype: str
     """
 
-    cert = ssl.get_server_certificate((hostname, port))
-    x509 = OpenSSL.crypto.load_certificate(OpenSSL.crypto.FILETYPE_PEM, cert)
-    
-    return x509.get_subject().O
+    try:
+        cert = ssl.get_server_certificate((hostname, port))
+        x509 = OpenSSL.crypto.load_certificate(OpenSSL.crypto.FILETYPE_PEM, cert)
+
+        return x509.get_subject().O
+
+    except Exception:
+        return ""

@@ -31,6 +31,6 @@ def check_certificate_strength(hostname, port) -> tuple[str, str]:
                 return str(cipher[0]), str(cipher[2]) + " bits"
 
     except Exception as e:
-        print('Error:', e)
+        pass
 
     return "", ""
