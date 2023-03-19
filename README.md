@@ -38,7 +38,7 @@ The output shown below are the latest supported commands.
 usage: python3 certify [-h] [-v] [-d hostname] [-l file_path] [-p port] [-an] [-cn] [-on] [-tv] [-cipher] [-hash hash_name] [-jarm] [-sn] [-pin] [-av] [-vu] [-ex] [-ss] [-mm] [-re] [-un]
                        [-o file_path] [-j] [-silent]
 
-Checks the security of a certificate
+Certify is a python tool designed to check the security of SSL/TLS certificates.
 
 options:
   -h, --help            show this help message and exit
@@ -78,7 +78,7 @@ OUTPUT:
   -j, -json             display output in jsonline format
   -silent               display silent output
 
-python3 certify -d example.com -o cert.out
+python3 certify -d example.com -tv
 ```
 
 ## Using the Docker Container
