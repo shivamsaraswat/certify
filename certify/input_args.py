@@ -8,8 +8,8 @@ def parse_arguments() -> argparse.Namespace:
     :rtype: argparse.Namespace
     """
 
-    parser = argparse.ArgumentParser(prog='python3 certify', description='Certify is a python tool designed to check the security of SSL/TLS certificates.', epilog='python3 certify -d example.com -tv')
-    parser.add_argument('-v', '-version', action='version', version='Current version: v1.0', help='display project version')
+    parser = argparse.ArgumentParser(prog='python3 certify', description='certify is a python tool designed to check the security of SSL/TLS certificates.', epilog='python3 certify -d example.com -tv')
+    parser.add_argument('-v', '-version', action='version', version='Current version: v1.0.0', help='display project version')
 
     group1 = parser.add_argument_group('INPUT')
     group1.add_argument('-d', '-host', type=str, metavar='hostname', help='target host to scan (-d HOST1,HOST2)')

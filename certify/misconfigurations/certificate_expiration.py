@@ -28,4 +28,4 @@ def check_certificate_expiration(hostname, port) -> tuple[bool, str]:
             return True, expiration_formatted
 
     except Exception:
-        return False, "Invalid Certificate"
+        return "None", "Invalid Certificate"

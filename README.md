@@ -10,7 +10,12 @@ Whether you're a security researcher, network administrator, or just someone who
 To install dependencies, use the following command:
 
 ```bash
-pip3 install -r requirements.txt
+pip install -r requirements.txt
+```
+
+To import certify as module, install it using the following command:
+```bash
+pip install certifycert
 ```
 
 ## Installation with Docker
@@ -20,7 +25,7 @@ This tool can also be used with [Docker](https://www.docker.com/). To set up the
 docker build -t certify:latest .
 ```
 
-## Using the Certify
+## Using the Certify as command-line tool
 
 To run the Certify on a hostname, provide the hostname with the -d flag:
 
@@ -83,17 +88,9 @@ OUTPUT:
 python3 certify -d example.com -tv
 ```
 
-## Using the Docker Container
+### Examples
 
-A typical run through Docker would look as follows:
-
-```bash
-docker run -it --rm certify -d hostname
-```
-
-## Examples
-
-### Example 1:
+#### Example 1:
 
 ```bash
 > python3 certify -d cybersapien.tech -tv
@@ -109,7 +106,7 @@ docker run -it --rm certify -d hostname
 cybersapien.tech:443 [TLSv1.3]
 ```
 
-### Example 2:
+#### Example 2:
 
 ```bash
 > python3 certify -l domains.txt -o cert.out -tv -on -cipher -hash sha512 -jarm -sn -pin -av -vu -silent
@@ -117,7 +114,7 @@ google.com:443 [TLSv1.3] [TLS_AES_256_GCM_SHA384] [256 bits] [20720863506ab45142
 facebook.com:443 [Meta Platforms, Inc.] [TLSv1.3] [TLS_CHACHA20_POLY1305_SHA256] [256 bits] [6bc40449e06861f4d824fb941690c4b08688d2b720381a311af696a7b586f7630d52af11a17c3ebcbcb45d54b083a86d5d445a0782640835b58ff92b184b58b8] [27d27d27d0000001dc41d43d00041d286915b3b1e31b83ae31db5c5a16efc7] [01E6B342797813A1BE6E94AFC5457350] [Passed] [facebook.com] [DigiCert SHA2 High Assurance Server CA] [March 26, 2023 11:59:59 PM]
 ```
 
-### Example 3:
+#### Example 3:
 
 ```bash
 > python3 certify -d cybersapien.tech,facebook.com -an -cn
@@ -145,4 +142,33 @@ facebook.com:443 [xy.fbcdn.net]
 facebook.com:443 [xz.fbcdn.net]
 facebook.com:443 [facebook.com]
 ```
+
+## Using the Certify as module
+
+### Examples
+
+#### Example 1
+
+```bash
+from certify import Certify
+
+print(Certify.is_expired('expired.badssl.com'))
+```
+
+#### Example 2
+
+```bash
+from certify import Certify
+
+print(Certify.alternative_names('google.com'))
+```
+
+## Using the Docker Container
+
+A typical run through Docker would look as follows:
+
+```bash
+docker run -it --rm certify -d hostname
+```
+
 

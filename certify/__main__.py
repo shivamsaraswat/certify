@@ -2,6 +2,7 @@ import sys
 import json as jsonlib
 from termcolor import colored
 from input_args import parse_arguments
+
 from probes.jarm_hash import get_jarm_hash
 from probes.calculate_hash import get_hashes
 from probes.tls_version import get_tls_version
@@ -11,11 +12,12 @@ from probes.alternative_names import get_alternative_names
 from probes.organization_name import get_organization_name
 from probes.certificate_pinning import check_certificate_pinning
 from probes.certificate_strength import check_certificate_strength
+from probes.certificate_authority_verification import check_authority_verification
+
 from misconfigurations.certificate_trust import check_certificate_trust
 from misconfigurations.certificate_revocation import check_certificate_revocation
 from misconfigurations.certificate_expiration import check_certificate_expiration
 from misconfigurations.certificate_mismatched import check_certificate_mismatched
-from probes.certificate_authority_verification import check_authority_verification
 from misconfigurations.certificate_self_signed import check_certificate_self_signed
 
 
@@ -35,8 +37,8 @@ def json_out(hostname, port) -> None:
     json_out_dict = dict()
 
     # store certificate expiration status
-    expired_bool, expired_str = check_certificate_expiration(hostname, port)
-    if not expired_bool:
+    expired_bool, reason_or_valid_until = check_certificate_expiration(hostname, port)
+    if expired_bool == False:
         json_out_dict['Expired'] = 'Yes'
 
     # store subject alternative names
@@ -91,7 +93,7 @@ def json_out(hostname, port) -> None:
 
     # store certificate valid until
     if expired_bool:
-        json_out_dict['Valid Until'] = expired_str
+        json_out_dict['Valid Until'] = reason_or_valid_until
 
     # store host with self-signed certificate
     if check_certificate_self_signed(hostname, port):
@@ -190,9 +192,9 @@ if __name__ == '__main__':
             output_str = hostname + ":" + str(port)
 
         # display certificate expiration status
-        expired_bool, expired_str = check_certificate_expiration(hostname, port)
+        expired_bool, reason_or_valid_until = check_certificate_expiration(hostname, port)
         if args.ex:
-            if not expired_bool:
+            if expired_bool == False:
                 print(colored('[Expired]', 'red', attrs=['bold']), end=' ')
                 if output:
                     output_str += ' [Expired]'
@@ -263,9 +265,9 @@ if __name__ == '__main__':
         # display certificate valid until
         if args.vu:
             if expired_bool:
-                print(colored('[' + expired_str + ']', 'light_blue', attrs=['bold']), end=' ')
+                print(colored('[' + reason_or_valid_until + ']', 'light_blue', attrs=['bold']), end=' ')
                 if output:
-                    output_str += ' [' + expired_str + ']'
+                    output_str += ' [' + reason_or_valid_until + ']'
 
         # display host with self-signed certificate
         if args.ss:
