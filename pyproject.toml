@@ -1,6 +1,6 @@
 [project]
 name = "certifycert"
-version = "1.0.0"
+version = "0.1.0"
 description = "Certify is a python tool designed to check the security of SSL/TLS certificates."
 authors = [{ name = "Shivam Saraswat", email = "thecybersapien@protonmail.com" }]
 license = { file = "LICENSE.md" }
