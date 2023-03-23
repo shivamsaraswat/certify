@@ -25,6 +25,14 @@ This tool can also be used with [Docker](https://www.docker.com/). To set up the
 docker build -t certify:latest .
 ```
 
+OR 
+
+Pull directly from [Docker Hub](https://hub.docker.com/r/shivamsaraswat/certify):
+
+```bash
+docker pull shivamsaraswat/certify:latest
+```
+
 ## Using the Certify as command-line tool
 
 To run the Certify on a hostname, provide the hostname with the -d flag:
