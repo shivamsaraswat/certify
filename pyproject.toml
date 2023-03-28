@@ -1,3 +1,7 @@
+[build-system]
+requires = ["setuptools>=67.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "certifycert"
 version = "0.1.0"
@@ -8,20 +12,5 @@ readme = "README.md"
 dependencies = ["certifi", "ocsp-checker", "pyjarm", "requests", "pyopenssl"]
 requires-python = ">=3.10"
 
-[tool.poetry.dependencies]
-python = "^3.10"
-certifi = "^2022.12.7"
-ocsp-checker = "^1.9.11"
-pyjarm = "^0.0.5"
-requests = "^2.28.2"
-termcolor = "^2.2.0"
-pyopenssl = "^23.0.0"
-pytest = "^7.2.2"
-
 [project.urls]
 repository = "https://github.com/shivamsaraswat/certify"
-
-
-[build-system]
-requires = ["setuptools>=67.0.0", "wheel"]
-build-backend = "setuptools.build_meta"
