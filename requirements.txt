@@ -1,4 +1,4 @@
-certifi==2022.12.07
+certifi==2023.7.22
 ocsp_checker==1.9.11
 pyjarm==0.0.5
 pyOpenSSL==23.0.0
