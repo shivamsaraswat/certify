@@ -1,4 +1,4 @@
-# Certify
+# Certify - SSL/TLS Certificate Security Analysis Tool
 
 Certify is a powerful and easy-to-use Python tool designed to check the security of SSL/TLS certificates. It provides a range of options for analyzing certificates and identifying potential security risks, including the ability to display subject alternative names, subject common names, organization name, TLS version, cipher, certificate fingerprint hashes, JARM hash, certificate serial number, certificate pinning status, certificate authority verification, and certificate validity.
 
