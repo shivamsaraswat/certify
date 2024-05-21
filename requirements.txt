@@ -2,5 +2,5 @@ certifi==2023.7.22
 ocsp_checker==1.9.11
 pyjarm==0.0.5
 pyOpenSSL==23.0.0
-requests==2.31.0
+requests==2.32.0
 termcolor==2.2.0
