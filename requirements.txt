@@ -1,6 +1,6 @@
 certifi==2024.7.4
 ocsp_checker==1.9.11
 pyjarm==0.0.5
-pyOpenSSL==23.0.0
+pyOpenSSL==24.2.1
 requests==2.32.0
 termcolor==2.2.0
