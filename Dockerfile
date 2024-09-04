@@ -2,7 +2,7 @@
 # Run: docker run -it --rm certify -h
 
 # Base Image
-FROM python:3.12.5-alpine@sha256:c2f41e6a5a67bc39b95be3988dd19fbd05d1b82375c46d9826c592cca014d4de
+FROM python:3.12.5-alpine@sha256:8077d0497053dfaeabc55c9f4920dac07db174ee4bb583b1bdc4ee104ddf16f4
 
 # Maintainer
 LABEL maintainer="Shivam Saraswat <thecybersapien@protonmail.com>"
