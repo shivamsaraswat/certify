@@ -1,4 +1,6 @@
 # Certify - SSL/TLS Certificate Security Analysis Tool
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fshivamsaraswat%2Fcertify.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fshivamsaraswat%2Fcertify?ref=badge_shield)
+
 
 Certify is a powerful and easy-to-use Python tool designed to check the security of SSL/TLS certificates. It provides a range of options for analyzing certificates and identifying potential security risks, including the ability to display subject alternative names, subject common names, organization name, TLS version, cipher, certificate fingerprint hashes, JARM hash, certificate serial number, certificate pinning status, certificate authority verification, and certificate validity.
 
@@ -180,3 +182,7 @@ docker run -it --rm certify -d hostname
 ```
 
 
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fshivamsaraswat%2Fcertify.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fshivamsaraswat%2Fcertify?ref=badge_large)
