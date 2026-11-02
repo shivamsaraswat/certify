@@ -1,5 +1,5 @@
 certifi==2026.10.18
-ocsp_checker==1.9.14
+ocsp_checker==2.0.4
 pyjarm==0.0.5
 pyOpenSSL==26.0.0
 requests==2.33.0
