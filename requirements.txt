@@ -3,4 +3,4 @@ ocsp_checker==1.9.14
 pyjarm==0.0.5
 pyOpenSSL==26.0.0
 requests==2.33.0
-termcolor==2.5.0
+termcolor==3.3.0
